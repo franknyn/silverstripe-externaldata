@@ -29,7 +29,7 @@
  */
 abstract class ExternalDataObject extends ArrayData implements ExternalDataInterface {
 	
-	static $db = array('ID' => 'Varchar');
+	private static $db = array('ID' => 'Varchar');
 	
 	private $changed;
 	protected $record;
@@ -42,7 +42,6 @@ abstract class ExternalDataObject extends ArrayData implements ExternalDataInter
 	protected static $_cache_get_one;
 	protected static $_cache_field_labels = array();
 	protected static $_cache_composite_fields = array();
-	
 	public function __construct($data = array()) {
 		
 		foreach($data as $k => $v) {
@@ -274,7 +273,7 @@ abstract class ExternalDataObject extends ArrayData implements ExternalDataInter
 		return (
 			array_key_exists($field, $this->record)
 			|| $this->db($field)
-			|| (substr($field,-2) == 'ID') && $this->has_one(substr($field,0, -2))
+			|| (substr($field,-2) == 'ID')  //&& $this->has_one(substr($field,0, -2))
 			|| $this->hasMethod("get{$field}")
 		);
 	}
