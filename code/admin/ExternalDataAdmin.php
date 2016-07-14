@@ -8,12 +8,12 @@
  */
 
 abstract class ExternalDataAdmin extends ModelAdmin {
-	static $url_segment 	= '';
-	static $menu_title 		= 'External Data';
-	static $page_length 	= 10;
-	static $default_model 	= '';	
+	private static $url_segment 	= '';
+	private static $menu_title 		= 'External Data';
+	private static $page_length 	= 10;
+	private static $default_model 	= '';	
 	
-	static $managed_models	= array(
+	private static $managed_models	= array(
 	);	
 	
 	public function getEditForm($id = null, $fields = null) {
